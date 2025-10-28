@@ -1,0 +1,123 @@
+body {
+    background: #222;
+    color: #f5f8fa;
+    margin: 0;
+}
+
+header {
+    background: #003366;
+    color: #f5f8fa;
+    text-align: center;
+    padding: 1rem;
+}
+
+main h2 {
+    text-align: center;
+    color: #f5f8fa;
+    margin-top: 1rem;
+}
+
+.artist-details h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f5f8fa;
+    margin-bottom: 1rem;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.artist-list {
+    background: #2c2c2c;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.artist-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.artist-list li {
+    padding: 0.6rem 1rem;
+    margin-bottom: 0.5rem;
+    background: #222;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 600;
+}
+
+.artist-list li:hover {
+    background: #d8e6ff;
+}
+
+.artist-list li.active {
+    background: #003366;
+    color: white;
+}
+
+.artist-details {
+    background: #2c2c2c;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.artist-details img {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.artist-details img:hover {
+    transform: scale(1.05);
+}
+
+.artist-details p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+.buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.buttons button {
+    padding: 0.6rem 1.2rem;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.buttons button:hover {
+    background-color: #0055aa;
+    transform: scale(1.05);
+}
+
+@media (max-width: 800px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artist-list {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Maël Brosset">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music from the 2000's</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Music from the 2000's</h1>
+            <h2>Discover Iconic band from the 2000's </h2>
+        </header>
+
+        <!-- Application -->
+        <main id="app" class="main-content">
+            <h2 v-text="mainHeading"></h2>
+
+            <div class="content-grid">
+                <aside class="artist-list">
+                    <ul>
+                        <li 
+                            v-for="(artist, i) in topics" 
+                            :key="i"
+                            :class="{ active: i === index }"
+                            @click="selectArtist(i)">
+                            {{ artist.title }}
+                        </li>
+                    </ul>
+                </aside>
+
+                <!-- 🔹 Détails de l'artiste sélectionné (zone principale) -->
+                <section class="artist-details">
+                    <h3 v-text="topics[index].title"></h3>
+
+                    <a :href="topics[index].link" target="_blank">
+                        <img :src="topics[index].img" :alt="topics[index].title">
+                    </a>
+
+                    <p v-text="topics[index].desc"></p>
+                    <div class="buttons">
+                        <button @click="move(-1)" type="button">Previous</button>
+                        <button @click="move(1)" type="button">Next</button>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 - Interactive Data Project by Maël Brosset</p>
+        </footer>
+    </div>
+
+    <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Data file -->
+    <script src="data/main.js"></script>
+
+    <!-- Vue logic -->
+    <script>
+        const myVueApp = {
+            data() {
+                return {
+                    mainHeading: "🎵 Discover Iconic Bands",
+                    topics,
+                    index: 0
+                };
+            },
+            methods: {
+                selectArtist(i) {
+                    this.index = i;
+                },
+                move(step) {
+                    // Change l’artiste en fonction du bouton
+                    if (this.topics[this.index + step]) {
+                        this.index += step;
+                    }
+                }
+            }
+        };
+
+        Vue.createApp(myVueApp).mount('#app');
+    </script>
+</body>
+</html>
